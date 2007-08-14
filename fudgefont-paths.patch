@@ -1,0 +1,15 @@
+--- fudgefont-1.2-src/SConstruct~	2007-01-24 19:04:15.000000000 +0100
++++ fudgefont-1.2-src/SConstruct	2007-08-13 11:58:21.000000000 +0200
+@@ -59,9 +59,9 @@
+             LIBS.extend(["agl", "GL", "GLU"])
+     env.ParseConfig("freetype-config --libs")
+     if static: env.Append(CCFLAGS = ["-DALLEGRO_STATICLINK"])
+-    CPPPATH.append("/usr/local/include/freetype2")
+-    LIBDIR = "/usr/local/lib"
+-    INCLUDEDIR = "/usr/local/include"
++    CPPPATH.append("/usr/include/freetype2")
++    LIBDIR = "/usr/lib"
++    INCLUDEDIR = "/usr/include"
+ 
+     library = env.SharedLibrary(libname, BUILD + "/fudgefont.c")
+ else:
