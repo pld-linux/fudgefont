@@ -1,15 +1,15 @@
 # TODO:
 # - build examples and add them to main package
-# - add description and summary
+# - add pl description and summary
 
-Summary:	-
+Summary:	Fudges TTF fonts into Allegro
 Summary(pl.UTF-8):	-
 Name:		fudgefont
 Version:	1.2
 Release:	0.1
 License:	MIT
 Group:		Applications
-Source0:	http://dfn.dl.sourceforge.net/sourceforge/fudgefont/%{name}-%{version}-src.7z
+Source0:	http://dl.sourceforge.net/fudgefont/%{name}-%{version}-src.7z
 # Source0-md5:	57bbe9b92d4f25210f803db481eb0939
 Patch0:		%{name}-paths.patch
 URL:		http://fudgefont.sourceforge.net/
@@ -21,6 +21,8 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Yet another TTF addon for Allegro - but smaller than all others and
+with full Unicode and AllegroGL support.
 
 %description -l pl.UTF-8
 
