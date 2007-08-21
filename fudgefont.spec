@@ -1,5 +1,6 @@
 # TODO:
 # - build examples and add them to main package
+# - add description and summary
 
 Summary:	-
 Summary(pl.UTF-8):	-
@@ -12,8 +13,11 @@ Source0:	http://dfn.dl.sourceforge.net/sourceforge/fudgefont/%{name}-%{version}-
 # Source0-md5:	57bbe9b92d4f25210f803db481eb0939
 Patch0:		%{name}-paths.patch
 URL:		http://fudgefont.sourceforge.net/
+BuildRequires:	allegro-devel
+BuildRequires:	freetype-devel
 BuildRequires:	p7zip
 BuildRequires:	scons
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
