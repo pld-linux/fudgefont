@@ -1,4 +1,5 @@
 # TODO:
+# - optflags (by killing scons?)
 # - build examples and add them to main package
 
 Summary:	Fudges TTF fonts into Allegro
