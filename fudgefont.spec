@@ -1,9 +1,8 @@
 # TODO:
 # - build examples and add them to main package
-# - add pl description and summary
 
 Summary:	Fudges TTF fonts into Allegro
-Summary(pl.UTF-8):	-
+Summary(pl.UTF-8):	Umieszczanie fontów TTF w Allegro
 Name:		fudgefont
 Version:	1.2
 Release:	0.1
@@ -25,6 +24,8 @@ Yet another TTF addon for Allegro - but smaller than all others and
 with full Unicode and AllegroGL support.
 
 %description -l pl.UTF-8
+Jeszcze jeden dodatek TTF dla Allegro - ale mniejszy od innych i z
+pełną obsługą Unikodu i AllegroGL.
 
 %package devel
 Summary:	Header files for fudgefont library
@@ -39,20 +40,17 @@ Header files for fudgefont library.
 Pliki nagłówkowe biblioteki fudgefont.
 
 %prep
-rm -rf fudgefont-1.2-src
-7z x ../SOURCES/%{name}-%{version}-src.7z
-cd %{name}-%{version}-src
+%setup -q -c -T -n %{name}-%{version}-src
+7z x -o.. %{SOURCE0}
 %patch0 -p1
 
 %build
-cd %{name}-%{version}-src
 scons
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
 
-cd %{name}-%{version}-src
 install libfudgefont.so $RPM_BUILD_ROOT%{_libdir}
 install src/fudgefont.h $RPM_BUILD_ROOT%{_includedir}
 
