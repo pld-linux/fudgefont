@@ -46,7 +46,7 @@ Pliki nagłówkowe biblioteki fudgefont.
 %patch0 -p1
 
 %build
-scons
+%{scons}
 
 %install
 rm -rf $RPM_BUILD_ROOT
