@@ -1,23 +1,20 @@
 # TODO:
-# - optflags (by killing scons?)
 # - build examples and add them to main package
 
 Summary:	Fudges TTF fonts into Allegro
 Summary(pl.UTF-8):	Umieszczanie fontów TTF w Allegro
 Name:		fudgefont
-Version:	1.2
+Version:	1.4
 Release:	0.1
 License:	MIT
 Group:		Applications
 Source0:	http://dl.sourceforge.net/fudgefont/%{name}-%{version}-src.7z
-# Source0-md5:	57bbe9b92d4f25210f803db481eb0939
+# Source0-md5:	4eb0eec8f430a39b4941cebea512c263
 Patch0:		%{name}-paths.patch
-URL:		http://fudgefont.sourceforge.net/
+URL:		http://sourceforge.net/projects/fudgefont/
 BuildRequires:	allegro-devel
 BuildRequires:	freetype-devel
 BuildRequires:	p7zip
-BuildRequires:	scons
-BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,7 +43,9 @@ Pliki nagłówkowe biblioteki fudgefont.
 %patch0 -p1
 
 %build
-scons
+%{__cc} %{rpmcflags} -o fudgefont.os -c -fPIC `freetype-config --cflags` src/fudgefont.c
+%{__cc} %{rpmcflags} -o kerning.os -c -fPIC `freetype-config --cflags` src/kerning.c
+%{__cc} %{rpmcflags} %{rpmldflags}-o libfudgefont.so -shared fudgefont.os kerning.os `freetype-config --libs` `allegro-config --libs`
 
 %install
 rm -rf $RPM_BUILD_ROOT
