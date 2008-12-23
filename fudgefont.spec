@@ -10,7 +10,6 @@ License:	MIT
 Group:		Applications
 Source0:	http://dl.sourceforge.net/fudgefont/%{name}-%{version}-src.7z
 # Source0-md5:	4eb0eec8f430a39b4941cebea512c263
-Patch0:		%{name}-paths.patch
 URL:		http://sourceforge.net/projects/fudgefont/
 BuildRequires:	allegro-devel
 BuildRequires:	freetype-devel
@@ -40,7 +39,6 @@ Pliki nagłówkowe biblioteki fudgefont.
 %prep
 %setup -q -c -T -n %{name}-%{version}-src
 7z x -o.. %{SOURCE0}
-%patch0 -p1
 
 %build
 %{__cc} %{rpmcflags} -o fudgefont.os -c -fPIC `freetype-config --cflags` src/fudgefont.c
